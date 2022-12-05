@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+  <div class="page"> 
+   
+    <section class="container"> <!-- el contenido tiene que tener position absolute para no interferir ocupando contenido en la pantalla -->
+
+      <nav class="navbar">
+        <div class="navbar__content">
+          <img src="./Assets/Logo.jpg" alt="logo">
+          <ul>
+            <li><a href="#">Exclusivos</a></li>
+            <li><a href="#">Nuevos</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Find a store</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+      <section class="main-content">
+        <p>Diseña tu</p>
+        <h1>Súper heroe!</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum laborum non inventore eius ut ea quas, dolorum vel ipsam minus minima aperiam, repellat blanditiis error quidem cumque consequuntur earum veniam!
+        </p>
+      </section>
+
+      <section class="side-content">
+        <p>Superman!</p>
+        <img src="https://i.ibb.co/x16pz1x/super-man.png" alt="superman">
+        <div></div>
+      </section>
+
+      <section class="footer">
+        <div class="buttonOne">
+          <img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="spiderman">
+        </div>
+        <div class="buttonTwo">
+          <img src="https://i.ibb.co/Xzsdvgg/robin.png" alt="robin">
+        </div>
+        <div class="buttonThree">
+          <img src="https://i.ibb.co/M18p91c/batman.webp" alt="batman">
+        </div>
+      </section>
+
+    </section>
+
+    <!-- Loader -->
+    <section class="loader"> <!-- este seria el de posicion absoluta con un ancho y un alto dado -->
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+    <!-- Modal -->
+    <section class="modal hidden">
+
+      <div class="modal__content"> <!-- este es el contenedor del slider -->
+        <img class="modal__content--close" src="./Assets/close-icon-32.png" alt="close">
+      
+        <div class="modal__content--slider"> <!-- aca empieza la estructura del slider ------------------------------------------->
+
+          <input type="radio" name="slider-1" id="radio-1" checked>
+          <input type="radio" name="slider-1" id="radio-2">
+          <input type="radio" name="slider-1" id="radio-3">
+
+          <div class="cards">
+            <label for="radio-1" id="card-1" class="card">
+              <img src="https://static.platzi.com/media/public/uploads/spider-man_db8af43d-b692-4986-a385-e645d286e142.png" alt="spiderman 1"/>
+            </label>
+            <label for="radio-2" id="card-2" class="card">
+              <img src="https://static.platzi.com/media/public/uploads/spider-man-2_b24c96b3-6d59-496f-815d-32b25eba0141.png" alt="spiderman 2"/>
+            </label>
+            <label for="radio-3" id="card-3" class="card">
+              <img src="https://static.platzi.com/media/public/uploads/spider-man-3_19f5c510-8059-4477-abf8-42249a5445b7.png" alt="spiderman 3"/>
+            </label>
+          </div>
+
+        </div> <!-- aca termina la estructura del slider ------------------------------------------------------------------------>
+
+        <button class="button-red">Lo quiero!</button>
+
+      </div>
+    </section>
+  </div>  
+
+  <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+:root {
+  --yellow: #ffd602;
+  --red: #d5040a;
+  --blue: #036cb6;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+	overflow: hidden;
+}
+
+.container {
+	position: absolute;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 20% 50% 30%;
+  grid-template-areas: 
+  'nav     aside'
+  'section aside'
+  'footer  aside';
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar {
+  grid-area: nav;
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 80px;
+
+  animation: 2s navbar 0.5s ease-in-out;
+}
+
+@keyframes navbar {
+  0% {
+    transform: translateY(-200px); /* -200 pixeles mueve el elemento hacia arriba, 0px posicion por defecto del elemento */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.navbar__content img {
+  width: 50px;
+}
+
+.navbar__content ul {
+  display: flex;
+  justify-content: start;
+  margin-left: 10px;
+  list-style: none;
+  width: 450px;
+}
+
+.navbar__content ul li a {
+  color: var(--red);
+  font-weight: 300;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.main-content p:first-child {
+  font-size: 30px;
+  margin: 0 0 -14px 44px;
+}
+
+.main-content h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+}
+.main-content p:last-child {
+  width: 60%;
+  font-size: 14px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: section;
+  padding-left: 80px;
+
+  animation: 2s main-content 0.5s ease-in-out;
+}
+
+@keyframes main-content {
+  0% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.side-content {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+
+  grid-area: aside;
+}
+
+.side-content p {
+  transform: rotate(-90deg);
+  font-size: 36px;
+
+  grid-row: 1 / 4;
+  grid-column: 1 / 2;
+
+  opacity: 0;
+
+  animation-name: side-content-text; /* aca escribimos las propiedades de las animaciones como tal, sin shorcuts */
+  animation-duration: 0.5s;
+  animation-delay: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards; /* aca escribimos las propiedades de las animaciones como tal, sin shorcuts ----*/
+}
+
+@keyframes side-content-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.side-content img {
+  width: 100%;
+  grid-row: 1 / 4;
+  grid-column: 2 / 6;
+  animation: 2s superman 0.5s ease-in-out forwards;
+}
+
+@keyframes superman {
+  0% {
+    transform: translateX(1000px); /* en el eje X pixeles positivos colocan el elemento hacia la derecha y los negativos hacia la izquierda */
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.side-content div {
+  background: var(--yellow);
+  grid-row: 1 / 4;
+  grid-column: 4 / 7;
+  height: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  background: var(--yellow);
+  border-radius: 0 50px 0 0; /* esta es la forma correcta de redondear solo una esquina de un cuadrado */
+  transform: translateY(150px); /* esto baja todo el footer transladandolo 150px debajo */
+  
+  animation-name: footer;/* aca escribimos las propiedades de las animaciones como tal, sin shorcuts ----*/
+  animation-duration: 0.5s;
+  animation-delay: 2.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;/* aca escribimos las propiedades de las animaciones como tal, sin shorcuts ----*/
+}
+
+@keyframes footer {
+  0% {
+    transform: translateY(150px); /* en el eje Y pixeles positivos colocan al elemento hacia bajo y px negativos hacia arriva */
+  }
+  100% {
+    transform: translate(0px); /* 0px es la posicion real del elemento */
+  }
+}
+
+.footer div {
+  background: var(--blue);
+  width: 130px;
+  height: 50%;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer div img {
+  width: 100px;
+  position: absolute;
+  bottom: 25px;
+
+  transform: translateY(0px) scale(1);
+  transition: transform 0.5s ease-in-out; /* esto no es una animacion, esto no es untransform, ESTO ES UNA TRANSICION!!! */
+}
+
+.footer:hover div {
+  cursor: pointer;
+}
+
+.footer div:hover img {
+  cursor: pointer;
+
+  transform: translateY(-20px) scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.loader {
+	position: absolute;
+	background: #e7e1e1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+  z-index: 0;
+
+	animation: loader 2s linear forwards;
+}
+
+@keyframes loader { /* esta es una animacion de opacidad */
+  0%{
+    z-index: 20;
+    opacity: 1;
+  }
+  95% {
+    z-index: 20;
+    opacity: 1;
+  }
+  100%{
+    z-index: 0;
+    opacity: 0;
+  }
+}
+
+.loader div {
+  background: yellow;
+  width: 40px;
+	height: 40px;
+  border-radius: 50%;
+
+  transform: scale(0.4);
+  
+  animation: points 2s ease-in-out infinite;
+}
+
+.loader div:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.loader div:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+
+@keyframes points {
+  0%, 100% {
+    transform: scale(0.4);
+	}
+	40% {
+		transform: scale(0.7);
+	}
+	70% {
+		transform: scale(0.8);
+	}
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 15;
+
+  display: grid;
+  place-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: grid;
+}
+
+.modal__content {
+  background: #ffffff;
+  width: 50%;
+  height: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.modal__content:hover img {
+  cursor: pointer;
+}
+
+.modal__content--close {
+  place-self: end;
+  align-self: start;
+}
+
+.modal__content--slider { /* aca empieza los estilos del slider ------------------------------------------------- */
+  width: 300px;
+  height: 200px;
+  transform-style: preserve-3d;
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  background: var(--yellow);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 50%;
+  height: 100%
+}
+
+.card img {
+  width: 100%;
+}
+
+#radio-1:checked ~ .cards #card-1,
+#radio-2:checked ~ .cards #card-2,
+#radio-3:checked ~ .cards #card-3 {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+#radio-1:checked ~ .cards #card-2,
+#radio-2:checked ~ .cards #card-3,
+#radio-3:checked ~ .cards #card-1 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+}
+#radio-1:checked ~ .cards #card-3,
+#radio-2:checked ~ .cards #card-1,
+#radio-3:checked ~ .cards #card-2 {
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+} /* aca termina los estilos del slider ------------------------------------------------------------------------- */
+
+#radio-1,
+#radio-2,
+#radio-3 {
+  display: none;
+} 
+
+.button-red {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border: 3px solid var(--blue);
+  background: var(--red);
+  font-size: 1rem;
+  color: #ffffff;
+  border-radius: 20px;
+  margin: 20px 0 0 0;
+}
+
+.button-red:hover {
+  cursor: pointer;
+}
