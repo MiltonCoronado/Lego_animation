@@ -167,7 +167,7 @@ body {
   align-items: flex-end;
   background: var(--yellow);
   border-radius: 0 50px 0 0; /* esta es la forma correcta de redondear solo una esquina de un cuadrado */
-  transform: translateY(150px); /* esto baja todo el footer transladandolo 150px debajo */
+  transform: translateY(100%); /* esto baja todo el footer transladandolo 150px debajo (o 100% de su contenido) */
   
   animation-name: footer;/* aca escribimos las propiedades de las animaciones como tal, sin shorcuts ----*/
   animation-duration: 0.5s;
@@ -178,7 +178,7 @@ body {
 
 @keyframes footer {
   0% {
-    transform: translateY(150px); /* en el eje Y pixeles positivos colocan al elemento hacia bajo y px negativos hacia arriva */
+    transform: translateY(100%); /* en el eje Y pixeles positivos colocan al elemento hacia bajo y px negativos hacia arriva */
   }
   100% {
     transform: translate(0px); /* 0px es la posicion real del elemento */
